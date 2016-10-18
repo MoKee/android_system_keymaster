@@ -374,6 +374,18 @@ static keymaster_error_t build_auth_list(const AuthorizationSet& auth_list, KM_A
         case KM_TAG_ATTESTATION_ID_MODEL:
             string_ptr = &record->attestation_id_model;
             break;
+
+        /* Soter Tags begins */
+        case KM_TAG_SOTER_IS_FROM_SOTER:
+        case KM_TAG_SOTER_IS_AUTO_SIGNED_WITH_ATTK_WHEN_GET_PUBLIC_KEY:
+        case KM_TAG_SOTER_IS_AUTO_SIGNED_WITH_COMMON_KEY_WHEN_GET_PUBLIC_KEY:
+        case KM_TAG_SOTER_AUTO_SIGNED_COMMON_KEY_WHEN_GET_PUBLIC_KEY:
+        case KM_TAG_SOTER_AUTO_ADD_COUNTER_WHEN_GET_PUBLIC_KEY:
+        case KM_TAG_SOTER_IS_SECMSG_FID_COUNTER_SIGNED_WHEN_SIGN:
+        case KM_TAG_SOTER_USE_NEXT_ATTK:
+        case KM_TAG_SOTER_UID:
+        case KM_TAG_SOTER_AUTO_SIGNED_COMMON_KEY_WHEN_GET_PUBLIC_KEY_BLOB:
+            continue;
         }
 
         keymaster_tag_type_t type = keymaster_tag_get_type(entry.tag);
